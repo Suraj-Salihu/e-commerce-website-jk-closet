@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK fashion - Wear Your Identity in Style</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+        :root {
+            --primary: #000000;
+            --secondary: #ffffff;
+            --bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-light: #f5f5f5;
+            --text-muted: #999999;
+            --accent: #555555;
+            --highlight: #888888;
+            --border: #333333;
+            --discount: #ff0000;
+            --rating: #ffd700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+/* Header Styles */
+header {
+    height: 90px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.98);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    margin-left: -30px;
+    height: 60px; /* Slightly reduced for better proportion */
+    filter: invert(100%);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-left: -10px;
+}
+
+.tagline {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+    position: relative;
+    top: -3px; /* Fine-tuned vertical alignment */
+}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/hero-background1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h2 {
+            margin-top: 60px;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .hero h2 strong {
+            font-weight: 700;
+            display: block;
+        }
+        
+        .hero p {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            margin-top: 80px;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--secondary);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            color: var(--secondary);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        /* Featured Products */
+        .featured-products {
+            background-color: var(--bg);
+        }
+        
+        .featured-slider {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 600%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .slider-slide {
+            width: 16.6666%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+        
+        .slider-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        
+        .slider-content h3 {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .slider-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            border-color: var(--highlight);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: grayscale(20%);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--discount);
+            color: var(--secondary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .current-price {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .original-price {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+        
+        .rating {
+            color: var(--rating);
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .delivery-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .options-title {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+        
+        .color-selector, .size-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--card-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .color-option:hover, .color-option.selected {
+            border-color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .color-white { background-color: #ffffff; }
+        .color-black { background-color: #000000; }
+        
+        .size-option {
+            padding: 0.3rem 0.6rem;
+            background-color: var(--bg);
+            color: var(--text-light);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .size-option:hover, .size-option.selected {
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
+        
+        .order-button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--secondary);
+        }
+        
+        .order-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        /* Jumia-style product grid */
+        .jumia-style-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .jumia-product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .jumia-product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            border-color: var(--highlight);
+        }
+        
+        .jumia-product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .jumia-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: grayscale(20%);
+        }
+        
+        .jumia-product-card:hover .jumia-product-image img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        
+        .jumia-product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--discount);
+            color: var(--secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .jumia-product-info {
+            padding: 1rem;
+        }
+        
+        .jumia-product-title {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            min-height: 2.8rem;
+            font-weight: 500;
+        }
+        
+        .jumia-price-container {
+            margin-bottom: 0.5rem;
+        }
+        
+        .jumia-current-price {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .jumia-original-price {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+        
+        .jumia-rating {
+            color: var(--rating);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .jumia-delivery-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .jumia-order-button {
+            width: 100%;
+            padding: 0.6rem;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border: 1px solid var(--secondary);
+        }
+        
+        .jumia-order-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        /* Filter/Sort Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1rem;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .filter-button, .sort-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .filter-button:hover, .sort-button:hover {
+            color: var(--secondary);
+        }
+        
+        /* Video Section */
+        .video-section {
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 133.33%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .products-grid, .jumia-style-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .featured-slider {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid, .jumia-style-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-bar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+        /* Back to Top Button Styles */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 2px solid var(--secondary);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--primary);
+    color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+    </style>
+<style>
+/* Slideshow Styles */
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: 2rem auto;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+}
+
+.customer-slide {
+    display: none;
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.customer-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: transform 0.5s;
+}
+
+.customer-slide:hover img {
+    transform: scale(1.02);
+}
+.customer-quote {
+    font-size: 1.0rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+    color: #fff;
+    text-align: center;
+}
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 2rem;
+    text-align: left;
+}
+
+/* Dots navigation */
+.dots-container {
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #555;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #fff;
+}
+
+/* Fade animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* CTA Button (Black & White version) */
+.cta-button {
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+
+.cta-button:hover {
+    background: #fff !important;
+    color: #000 !important;
+}
+/* Search Bar Styles */
+.search-bar {
+    margin-bottom: 2rem;
+    padding: 0 5%;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-container:focus-within {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.search-container i {
+    color: var(--text-muted);
+    margin-right: 0.8rem;
+    font-size: 1rem;
+}
+
+.search-input {
+    margin-right: -40px;
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-button {
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: none;
+    border-radius: 20px;
+    padding: 0rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+}
+
+.search-button:hover {
+    background-color: var(--highlight);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .search-container {
+        padding: 0.5rem;
+    }
+    
+    .search-button {
+        padding: 0.5rem 1rem;
+    }
+}
+</style>
+<style>
+/* Customer Showcase Styles */
+.customer-showcase {
+    padding: 4rem 5%;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.showcase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Featured Customers Section */
+.featured-customers {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-slideshow {
+    position: relative;
+    height: 500px;
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.featured-slide.active {
+    opacity: 1;
+}
+
+.featured-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 2rem;
+    color: white;
+}
+
+.customer-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.slide-nav.prev {
+    left: 20px;
+}
+
+.slide-nav.next {
+    right: 20px;
+}
+
+/* Instagram Gallery Section */
+.instagram-gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.instagram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .instagram-overlay {
+    opacity: 1;
+}
+
+.instagram-overlay i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(to right, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white !important;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .showcase-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-slideshow {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .featured-slideshow {
+        height: 350px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Header --> <!-- Hey! this is comments -->
+<header>
+    <div class="header-left">
+        <div class="logo">
+            <img src="images/jk-icon2.png" alt="JK Icon">
+            <h1>JK fashion</h1>
+        </div>
+        <p class="tagline">Wear Your Identity</p>
+    </div>
+</header>
+ 
+<!-- Hero Section -->
+<section class="hero">
+        <h2>Elevate Your <strong>Style</strong></h2>
+        <p>Discover our premium collection of T-shirts, Caps, and Socks designed to express your unique identity with every wear.</p>
+        <a href="#featured" class="cta-button">Shop Now</a>
+    </section>
+
+<!-- Featured Products -->
+<section id="featured" class="featured-products">
+        <h2 class="section-title">Featured Products</h2>
+        
+<!-- Image Slider -->
+<div class="featured-slider">
+    <div class="slider-container" id="sliderContainer">
+        <!-- Original Slide 1 -->
+        <div class="slider-slide">
+            <img src="images/www-t-shirt-white.jpg" alt="Featured T-Shirts">
+            <img src="images/www-t-shirt-white.jpg" alt="Featured T-Shirts">
+            <div class="slider-content">
+                <h3>New Collection White</h3>
+                <p>Premium quality t-shirts in various colors</p>
+            </div>
+        </div>
+        <!-- Original Slide 2 -->
+        <div class="slider-slide">
+            <img src="images/www-t-shirt-black.jpg" alt="Featured T-Shirts">
+            <div class="slider-content">
+                <h3>New Collection Black</h3>
+                <p>Available in a range of vibrant colors to match every mood.</p>
+            </div>
+        </div>
+        <!-- Original Slide 3 -->
+        <div class="slider-slide">
+            <img src="images/jk-t-shirt-black.jpg" alt="Featured Black T-Shirts">
+            <div class="slider-content">
+                <h3>JK Summer Essentials</h3>
+                <p>Luxury and comfortable black JK T-Shirts.</p>
+            </div>
+        </div>
+        <!-- Placeholder Slide 4 -->
+        <div class="slider-slide">
+            <img src="images/jk-t-shirt-white.jpg" alt="Placeholder 4">
+            <div class="slider-content">
+                <h3>White Is Luxury</h3>
+                <p>Clean, classic, and essential for every wardrobe.</p>
+            </div>
+        </div>
+        <!-- Placeholder Slide 5 -->
+        <div class="slider-slide">
+            <img src="images/jk-collections.png" alt="Placeholder 5">
+            <div class="slider-content">
+                <h3>Quality Collection</h3>
+                <p>Your favorites and Premium Quality Collection</p>
+            </div>
+        </div>
+        <!-- Placeholder Slide 6 -->
+        <div class="slider-slide">
+            <img src="images/socks-white.jpg" alt="Placeholder 6">
+            <div class="slider-content">
+                <h3>Unisex White Socks</h3>
+                <p>Pairs Of Finest Cotton Freesize Unisex Plain Long Socks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dots Navigation -->
+    <div class="slider-nav" id="sliderNav">
+        <div class="slider-dot active" data-slide="0"></div>
+        <div class="slider-dot" data-slide="1"></div>
+        <div class="slider-dot" data-slide="2"></div>
+        <div class="slider-dot" data-slide="3"></div>
+        <div class="slider-dot" data-slide="4"></div>
+        <div class="slider-dot" data-slide="5"></div>
+    </div>
+</div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">-42%</span>
+                    <img src="images/jk-t-shirt-black.jpg" alt="Premium T-Shirt">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium T-Shirt</h3>
+                    <div class="price-container">
+                        <span class="current-price">₦30,000.00</span>
+                        <span class="original-price">₦33,000.00</span>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(121)</span>
+                    </div>
+                    <span class="delivery-badge">EXPRESS DELIVERY</span>
+                    
+                    <div class="color-options">
+                        <p class="options-title">Color:</p>
+                        <div class="color-selector">
+                            <div class="color-option color-white selected" data-color="White"></div>
+                            <div class="color-option color-black" data-color="Black"></div>
+                            <div class="color-option color-blue" data-color="blue"></div>
+                            <div class="color-option color-brown" data-color="Brown"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="size-options">
+                        <p class="options-title">Size:</p>
+                        <div class="size-selector">
+                            <div class="size-option" data-size="S">S</div>
+                            <div class="size-option selected" data-size="M">M</div>
+                            <div class="size-option" data-size="L">L</div>
+                            <div class="size-option" data-size="XL">XL</div>
+                        </div>
+                    </div>
+                    
+                    <button class="order-button" onclick="orderViaWhatsApp('Premium T-Shirt', 'White', 'M', '₦30,000.00')">Order Now</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">-13%</span>
+                    <img src="images/face-cap-white.jpg" alt="Baseball-Cap">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Baseball Cap</h3>
+                    <div class="price-container">
+                        <span class="current-price">₦15,000.00</span>
+                        <span class="original-price">₦17,000.00</span>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(87)</span>
+                    </div>
+                    <span class="delivery-badge">EXPRESS DELIVERY</span>
+                    
+                    <div class="color-options">
+                        <p class="options-title">Color:</p>
+                        <div class="color-selector">
+                            <div class="color-option color-white" data-color="White"></div>
+                            <div class="color-option color-black selected" data-color="Black"></div>
+                            <div class="color-option color-blue" data-color="Blue"></div>
+                            <div class="color-option color-brown" data-color="Brown"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="size-options">
+                        <p class="options-title">Size:</p>
+                        <div class="size-selector">
+                            <div class="size-option selected" data-size="One Size">One Size</div>
+                        </div>
+                    </div>
+                    
+                    <button class="order-button" onclick="orderViaWhatsApp('Baseball Cap', 'Black', 'One Size', '₦15,000.00')">Order Now</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <!--<div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">-18%</span>
+                    <img src="images/panama-cap-blue.jpg" alt="Panama Cap">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Panama Cap</h3>
+                    <div class="price-container">
+                        <span class="current-price">₦15,000.00</span>
+                        <span class="original-price">₦18,300.00</span>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(64)</span>
+                    </div>
+                    <span class="delivery-badge">FREE DELIVERY</span>
+                    
+                    <div class="color-options">
+                        <p class="options-title">Color:</p>
+                        <div class="color-selector">
+                            <div class="color-option color-white" data-color="White"></div>
+                            <div class="color-option color-black" data-color="Black"></div>
+                            <div class="color-option color-blue selected" data-color="Gray"></div>
+                            <div class="color-option color-brown" data-color="Charcoal"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="size-options">
+                        <p class="options-title">Size:</p>
+                        <div class="size-selector">
+                            <div class="size-option selected" data-size="One Size">One Size</div>
+                        </div>
+                    </div>
+                    
+                    <button class="order-button" onclick="orderViaWhatsApp('Panama Cap', 'Gray', 'One Size', '₦15,000.00')">Order Now</button>
+                </div>
+            </div>-->
+        </div>
+    </section>
+ 
+<!-- All Products Section -->
+<section class="all-products">
+    <h2 class="section-title">Our Collection</h2>
+    
+    <div class="search-bar">
+    <div class="search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search products..." class="search-input">
+        <button class="search-button">Search</button>
+    </div>
+</div>
+    <div class="jumia-style-grid">
+        <!-- T-Shirts -->
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-15%</span>
+                <img src="images/www-t-shirt-black.jpg" alt="T-Shirt Black">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt Black Cotton Comfort Fit</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(87)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'Black', 'M', '₦30,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-20%</span>
+                <img src="images/www-t-shirt-white.jpg" alt="T-Shirt White">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt White Cotton Comfort Fit</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(92)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'White', 'M', '₦30,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <!--<div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-10%</span>
+                <img src="images/www-t-shirt-blue.jpg" alt="T-Shirt Blue">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt Blue Cotton Comfort Fit</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(78)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'Blue', 'M', '₦30,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-25%</span>
+                <img src="images/www-t-shirt-brown.jpg" alt="T-Shirt Brown">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt Brown Cotton Comfort Fit</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(65)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'Brown', 'M', '₦33,000.00')">Order Now</button>
+            </div>
+        </div>-->
+        
+        <!-- JK T-Shirts -->
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-18%</span>
+                <img src="images/jk-t-shirt-black.jpg" alt="T-Shirt Black">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt Black Premium Cotton</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,500.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(105)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'Black', 'M', '₦30,000.00')">Order Now</button>
+            </div>
+        </div>
+        <!-- White Jk T-Shirt-->
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-22%</span>
+                <img src="images/jk-t-shirt-white.jpg" alt="T-Shirt White">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt White Premium Cotton</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(98)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'White', 'M', '₦30,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <!--<div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-15%</span>
+                <img src="images/jk-t-shirt-blue.jpg" alt="T-Shirt Blue">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt Blue Premium Cotton</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(82)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'Blue', 'M', '₦30,300.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-30%</span>
+                <img src="images/jk-t-shirt-brown.jpg" alt="T-Shirt Brown">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">T-Shirt Brown Premium Cotton</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦30,000.00</span>
+                    <span class="jumia-original-price">₦33,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(73)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('T-Shirt', 'Brown', 'M', '₦30,000.00')">Order Now</button>
+            </div>
+        </div>-->
+        
+        <!--Face Caps -->
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-10%</span>
+                <img src="images/face-cap-white.jpg" alt="Face Cap White">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Face Cap White Adjustable</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦15,000.00</span>
+                    <span class="jumia-original-price">₦17,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(112)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Face Cap', 'White', 'One Size', '₦15,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-15%</span>
+                <img src="images/face-cap-red.jpg" alt="Face Cap Red">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Adjustable Red Face Cap</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦15,000.00</span>
+                    <span class="jumia-original-price">₦17,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(95)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Face Cap', 'Red', 'One Size', '₦15,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <!--<div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-12%</span>
+                <img src="images/face-cap-blue.jpg" alt="Face Cap Blue">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Face Cap Blue Adjustable</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦15,000.00</span>
+                    <span class="jumia-original-price">₦17,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(88)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Face Cap', 'Blue', 'One Size', '₦15,000.00')">Order Now</button>
+            </div>
+        </div>-->
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-20%</span>
+                <img src="images/cap-and-t-shirt.jpg" alt="Black Cap And T-Shirt">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Jk's 2Sets Collections</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦45,000.00</span>
+                    <span class="jumia-original-price">₦50,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(76)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('JK's 2Sets Collections, 'All Color, 'One Size', '₦45,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <!-- Jk Collections -->
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-25%</span>
+                <img src="images/jk-collections.jpg" alt="jk's 3Sets-collections">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">JK's 3Sets Collections</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦130,000.00</span>
+                    <span class="jumia-original-price">₦140,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(102)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('JK's 3Sets Collections', 'All Color', 'One Size', '₦130,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <!--<div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-18%</span>
+                <img src="images/snap-back-cap-white.jpg" alt="Snap Back Cap White">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Snap Back Cap White Adjustable</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦15,500.00</span>
+                    <span class="jumia-original-price">₦17,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(97)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Snap Back Cap', 'White', 'One Size', '₦15,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-15%</span>
+                <img src="images/snap-back-cap-blue.jpg" alt="Snap Back Cap Blue">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Snap Back Cap Blue Adjustable</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦15,000.00</span>
+                    <span class="jumia-original-price">₦17,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(84)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Snap Back Cap', 'Blue', 'One Size', '₦15,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-30%</span>
+                <img src="images/snap-back-cap-brown.jpg" alt="Snap Back Cap Brown">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Snap Back Cap Brown Adjustable</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦15,000.00</span>
+                    <span class="jumia-original-price">₦17,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(79)</span>
+                </div>
+                <span class="jumia-delivery-badge">EXPRESS DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Snap Back Cap', 'Brown', 'One Size', '₦15,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <!-- Socks -->
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-40%</span>
+                <img src="images/socks-black.jpg" alt="Socks Black">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Premium Socks Black (2 Pairs)</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦5,000.00</span>
+                    <span class="jumia-original-price">₦7,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(124)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Premium Socks', 'Black', 'One Size', '₦5,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-35%</span>
+                <img src="images/socks-white.jpg" alt="Socks White">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Premium Socks White (2 Pairs)</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦5,000.00</span>
+                    <span class="jumia-original-price">₦7,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(118)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Premium Socks', 'White', 'One Size', '₦5,000.00')">Order Now</button>
+            </div>
+        </div>-->
+        
+        <!--<div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-30%</span>
+                <img src="images/socks-blue.jpg" alt="Socks Blue">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Premium Socks Blue (2 Pairs)</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦5,000.00</span>
+                    <span class="jumia-original-price">₦7,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(96)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Premium Socks', 'Blue', 'One Size', '₦5,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-45%</span>
+                <img src="images/socks-brown.jpg" alt="Socks Brown">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Premium Socks Brown (2 Pairs)</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦5,000.00</span>
+                    <span class="jumia-original-price">₦7,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(89)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Premium Socks', 'Brown', 'One Size', '₦7,000.00')">Order Now</button>
+            </div>
+        </div>-->
+        
+        <!-- Panama Caps -->
+        <!--<div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-20%</span>
+                <img src="images/panama-cap-black.jpg" alt="Panama Cap Black">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Panama Cap Black Summer Style</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦2p,000.00</span>
+                    <span class="jumia-original-price">₦23,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(107)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Panama Cap', 'Black', 'One Size', '₦20,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-25%</span>
+                <img src="images/panama-cap-white.jpg" alt="Panama Cap White">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Panama Cap White Summer Style</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦20,000.00</span>
+                    <span class="jumia-original-price">₦23,000.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(113)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Panama Cap', 'White', 'One Size', '₦20,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-15%</span>
+                <img src="images/panama-cap-blue.jpg" alt="Panama Cap Blue">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Panama Cap Blue Summer Style</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦20,000.00</span>
+                    <span class="jumia-original-price">₦23,100.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(94)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Panama Cap', 'Blue', 'One Size', '₦20,000.00')">Order Now</button>
+            </div>
+        </div>
+        
+        <div class="jumia-product-card">
+            <div class="jumia-product-image">
+                <span class="jumia-product-badge">-30%</span>
+                <img src="images/panama-cap-brown.jpg" alt="Panama Cap Brown">
+            </div>
+            <div class="jumia-product-info">
+                <h3 class="jumia-product-title">Panama Cap Brown Summer Style</h3>
+                <div class="jumia-price-container">
+                    <span class="jumia-current-price">₦20,000.00</span>
+                    <span class="jumia-original-price">₦23,100.00</span>
+                </div>
+                <div class="jumia-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(87)</span>
+                </div>
+                <span class="jumia-delivery-badge">FREE DELIVERY</span>
+                <button class="jumia-order-button" onclick="orderViaWhatsApp('Panama Cap', 'Brown', 'One Size', '₦20,000.00')">Order Now</button>
+            </div>
+        </div>-->
+    </div>
+</section>
+
+<!-- Video Section -->
+<section class="video-section">
+        <h2 class="section-title">Our Style</h2>
+        <div class="video-container">
+            <iframe id="brandVideo" width="560" height="315" src="videos/jk.mp4" title="JK Gallery Style" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+<!-- Customer Showcase Section -->
+    <section class="customer-showcase">
+    <div class="showcase-container">
+        <!-- Featured Customers -->
+        <div class="featured-customers">
+            <h2 class="section-title">JK Community</h2>
+            <p class="section-subtitle" style="text-align: center; margin-top: -20px;">Made for style, worn by legends. Show it off with <strong>#JKfashion</strong>!</p>
+            
+            <div class="featured-slideshow">
+                <!-- Slide 1 -->
+                <div class="featured-slide active">
+                    <img src="images/customer1a.jpg" alt="Customer wearing JK T-Shirt">
+                    <div class="slide-overlay">
+                        <p class="customer-quote">"Love the fit! My go-to brand now."</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="featured-slide">
+                    <img src="images/customer2a.jpg" alt="Customer wearing JK Snapback Cap">
+                    <div class="slide-overlay">
+                        <p class="customer-quote">"Wore it once, already buying more!"</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="featured-slide">
+                    <img src="images/customer3a.jpg" alt="Customer wearing JK outfit">
+                    <div class="slide-overlay">
+                        <p class="customer-quote">"The Caps Are Fire 🔥"</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="featured-slide">
+                    <img src="images/customer4a.jpg" alt="Customer wearing JK outfit">
+                    <div class="slide-overlay">
+                        <p class="customer-quote">"Quality that speaks for itself."</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation arrows -->
+                <button class="slide-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Instagram Gallery -->
+        <div class="instagram-gallery">
+            <h3 class="gallery-title">From Our Instagram</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/customer1.jpg" alt="Instagram post 1">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/customer2.jpg" alt="Instagram post 2">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/customer3.jpg" alt="Instagram post 3">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/customer4.jpg" alt="Instagram post 4">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/customer5.jpg" alt="Instagram post 5">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/customer6.jpg" alt="Instagram post 6">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-container" style="text-align: center; margin-bottom: -40px;">
+                <a href="https://instagram.com/JKfashion" class="cta-button" target="_blank">
+                    <i class="fab fa-instagram"></i> Follow Us @JKfashion
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/2349031789200"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p class="copyright">© 2023 JK Fashion. All rights reserved.</p>
+    </footer>
+    <script>
+// Featured Slideshow Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // First slideshow (featured products)
+    let currentFeaturedSlide = 0;
+    const featuredSlides = document.querySelectorAll('.featured-slide');
+    const totalFeaturedSlides = featuredSlides.length;
+    
+    function showFeaturedSlide(index) {
+        featuredSlides.forEach(slide => slide.classList.remove('active'));
+        currentFeaturedSlide = (index + totalFeaturedSlides) % totalFeaturedSlides;
+        featuredSlides[currentFeaturedSlide].classList.add('active');
+    }
+    
+    const nextBtn = document.querySelector('.slide-nav.next');
+    const prevBtn = document.querySelector('.slide-nav.prev');
+    
+    if (nextBtn) nextBtn.addEventListener('click', () => showFeaturedSlide(currentFeaturedSlide + 1));
+    if (prevBtn) prevBtn.addEventListener('click', () => showFeaturedSlide(currentFeaturedSlide - 1));
+    
+    // Second slideshow (customer showcase)
+    let customerSlideIndex = 0;
+    const customerSlides = document.getElementsByClassName("customer-slide");
+    const dots = document.getElementsByClassName("dot");
+    
+    function showCustomerSlides() {
+        // Hide all slides
+        for (let i = 0; i < customerSlides.length; i++) {
+            customerSlides[i].style.display = "none";  
+            dots[i].classList.remove("active");
+        }
+        
+        // Increment index
+        customerSlideIndex++;
+        if (customerSlideIndex > customerSlides.length) { customerSlideIndex = 1 }    
+        
+        // Show current slide
+        customerSlides[customerSlideIndex-1].style.display = "block";  
+        dots[customerSlideIndex-1].classList.add("active");
+    }
+    
+    // Third slideshow (product slider)
+    let productCurrentSlide = 0;
+    const sliderContainer = document.getElementById('sliderContainer');
+    const sliderDots = document.querySelectorAll('.slider-dot');
+    const totalProductSlides = sliderDots.length;
+    
+    function goToProductSlide(index) {
+        productCurrentSlide = index;
+        if (sliderContainer) {
+            sliderContainer.style.transform = `translateX(-${productCurrentSlide * (100 / totalProductSlides)}%)`;
+        }
+        
+        // Update dots
+        sliderDots.forEach((dot, i) => {
+            if (i === productCurrentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Color and size selection functionality
+    document.querySelectorAll('.color-option').forEach(option => {
+        option.addEventListener('click', function() {
+            this.parentElement.querySelectorAll('.color-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            this.classList.add('selected');
+        });
+    });
+    
+    document.querySelectorAll('.size-option').forEach(option => {
+        option.addEventListener('click', function() {
+            this.parentElement.querySelectorAll('.size-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            this.classList.add('selected');
+        });
+    });
+    
+    // WhatsApp order function
+    window.orderViaWhatsApp = function(productName, color, size, price, event) {
+        const productCard = event.target.closest('.product-card') || event.target.closest('.jumia-product-card');
+        const selectedColor = productCard?.querySelector('.color-option.selected')?.getAttribute('data-color') || color;
+        const selectedSize = productCard?.querySelector('.size-option.selected')?.getAttribute('data-size') || size;
+        
+        const message = `Hello JK Fashion! I would like to order:\n\n*Product:* ${productName}\n*Color:* ${selectedColor}\n*Size:* ${selectedSize}\n*Price:* ${price}\n\nPlease let me know about availability and payment details.`;
+        window.open(`https://wa.me/2349031789200?text=${encodeURIComponent(message)}`, '_blank');
+    };
+    
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Video autoplay
+    const videoSection = document.querySelector('.video-section');
+    const videoIframe = document.getElementById('brandVideo');
+    let videoPlayed = false;
+    
+    function checkVideoPlay() {
+        if (videoSection && videoIframe) {
+            const rect = videoSection.getBoundingClientRect();
+            const isVisible = (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+            
+            if (isVisible && !videoPlayed) {
+                videoIframe.src = videoIframe.src.replace('autoplay=0', 'autoplay=1');
+                videoPlayed = true;
+            }
+        }
+    }
+    
+    // Search functionality
+    const searchButton = document.querySelector('.search-button');
+    const searchInput = document.querySelector('.search-input');
+    
+    function performSearch() {
+        const searchTerm = searchInput?.value.toLowerCase();
+        if (searchTerm) {
+            const productCards = document.querySelectorAll('.product-card, .jumia-product-card');
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title, .jumia-product-title')?.textContent.toLowerCase();
+                card.style.display = title?.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+    }
+    
+    if (searchButton) searchButton.addEventListener('click', performSearch);
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+    }
+    
+    // Initialize all slideshows
+    if (featuredSlides.length > 0) {
+        showFeaturedSlide(0);
+        setInterval(() => showFeaturedSlide(currentFeaturedSlide + 1), 3000);
+    }
+    
+    if (customerSlides.length > 0) {
+        showCustomerSlides();
+        setInterval(showCustomerSlides, 3000);
+        
+        // Dot navigation for customer slides
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener("click", function() {
+                customerSlideIndex = i;
+                showCustomerSlides();
+            });
+        }
+    }
+    
+    if (sliderDots.length > 0) {
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToProductSlide(parseInt(dot.getAttribute('data-slide')));
+            });
+        });
+        setInterval(() => goToProductSlide((productCurrentSlide + 1) % totalProductSlides), 3000);
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', checkVideoPlay);
+    window.addEventListener('resize', checkVideoPlay);
+    checkVideoPlay();
+});
+
+// Back to Top Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+</body>
+</html>
