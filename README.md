@@ -1,7 +1,7 @@
-# JK Gallery - Clothing Brand Website
+# JK Fashion - Clothing Brand Website
 
-![JK Gallery Logo](images/jk-icon2.jpg)
-A modern, single-page e-commerce website for JK Gallery, featuring stylish apparel with WhatsApp ordering functionality.
+![JK Fashion Logo](images/jk-icon2.jpg)
+A modern, single-page e-commerce website for JK Fashion, featuring stylish apparel with WhatsApp ordering functionality.
 
 ## Features
 - **Responsive Design**: Optimized for all devices
@@ -76,9 +76,9 @@ jk-gallery/
 This project is licensed under the MIT License.
 
 **Contact**:  
-Email: jk-closet@gmail.com  
+Email: jk-fashion@gmail.com  
 WhatsApp: +234 813 186 0701  
-Instagram: [@jkcloset](https://instagram.com/jkcloset)
+Instagram: [@jkfashion](https://instagram.com/jkfashion)
 ```
 
 ### Key Notes:
